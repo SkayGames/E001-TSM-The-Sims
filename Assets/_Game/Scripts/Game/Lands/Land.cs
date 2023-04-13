@@ -25,7 +25,7 @@ public class Land : MonoBehaviour
 		_outline.sortingOrder = _showOrder - 1;
 
 		_outline.gameObject.SetActive(true);
-		transform.DOScale(1.2f, 0.3f).SetEase(Ease.OutBack).SetId(gameObject);
+		transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack).SetId(gameObject);
 	}
 
 	private void OnMouseExit()
@@ -34,6 +34,6 @@ public class Land : MonoBehaviour
 		_outline.sortingOrder = _startOrder - 1;
 
 		_outline.gameObject.SetActive(false);
-		transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack).SetId(gameObject);
+		transform.DOScale(0.8f, 0.3f).SetEase(Ease.OutBack).SetId(gameObject);
 	}
 }

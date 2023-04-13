@@ -15,7 +15,7 @@ public class LandsManager : MonoBehaviour
 
 	private List<Transform> m_lands = new List<Transform>();
 
-	public int _xIndex;
+	private int _xIndex;
 	private int _yIndex;
 
 	private void Start()
@@ -86,7 +86,7 @@ public class LandsManager : MonoBehaviour
 		if (m_lands.Count > 0)
 			m_instPosition = new Vector2(m_lands[m_lands.Count - 1].localPosition.x + _xOffSet, m_lands[m_lands.Count - 1].localPosition.y);
 
-		if (_xIndex == 0)
+		if (_xIndex == 0 && m_lands.Count > 0)
 			m_instPosition = new Vector2(7.561f, m_lands[m_lands.Count - 1].localPosition.y + _yOffSet);
 
 		Land m_land = Instantiate(land, m_instPosition, Quaternion.identity, _landParent);
