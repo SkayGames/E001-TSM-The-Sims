@@ -10394,7 +10394,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 21
-  m_Sprite: {fileID: 7123553499221798616, guid: b79f22cd227d76c4b9c9986dcf0514f0, type: 3}
+  m_Sprite: {fileID: 8864847695492051541, guid: 9c7711ccb0a37d744b6f5071d082d28c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10759,5 +10759,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 426217710}
+    - target: {fileID: 6123428204889051992, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
+      propertyPath: plantsItems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123428204889051992, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
+      propertyPath: plantsItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f6d6e63406d2b9046bd80f7e5076ecb1, type: 2}
+    - target: {fileID: 6123428204889051992, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
+      propertyPath: plantsItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 831406e78fbbc094db26017064789744, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}

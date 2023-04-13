@@ -63,6 +63,10 @@ public class LandsManager : MonoBehaviour
 					m_land.transform.localPosition = m_instPosition;
 					m_lands.Add(m_land.transform);
 
+					//Set Index
+					m_land.GetSavedData(m_lands.Count - 1);
+					m_land.Init();
+
 					_xIndex++;
 				}
 				else
@@ -93,6 +97,10 @@ public class LandsManager : MonoBehaviour
 		m_land.transform.localPosition = m_instPosition;
 
 		m_lands.Add(m_land.transform);
+
+		//Set Index
+		m_land.GetSavedData(m_lands.Count - 1);
+		m_land.Init();
 
 		if (_xIndex < 5)
 			_xIndex++;
