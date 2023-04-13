@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 511262ab3b912614786e33fb0dbea03d, type: 3}
   m_Name: Seed Orange
   m_EditorClassIdentifier: 
+  plantType: 0
+  plants: 1
   itemDesign: {fileID: -6628065623846512377, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
   collectedItem: {fileID: 11400000, guid: f6d6e63406d2b9046bd80f7e5076ecb1, type: 2}
   itemBuyPrice: 1.99

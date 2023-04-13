@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Plant Orange
   m_EditorClassIdentifier: 
   plantType: 1
+  plants: 1
   itemDesign: {fileID: -3911530490410185909, guid: 2529f58c0f0f4784d925363eac539680, type: 3}
   collectedItem: {fileID: 0}
   itemBuyPrice: 0

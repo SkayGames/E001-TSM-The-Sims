@@ -11,6 +11,7 @@ public class Land : MonoBehaviour
 	public Plants plantType;
 
 	[Header("UI")]
+	[SerializeField] private Image _fillImage;
 	[SerializeField] private RectTransform _collectPopUp;
 	[SerializeField] private RectTransform _plantPopUp;
 	[SerializeField] private TextMeshProUGUI _timerText;
@@ -35,11 +36,17 @@ public class Land : MonoBehaviour
 	private int _startOrder;
 
 	private bool _isBeenPlanted;
+	private bool _isHolding;
+	private bool _isMouseUp;
 
-	public void GetSavedData(int index)
+	private int index;
+
+	public void GetSavedData(int m_index)
 	{
-		_isBeenPlanted = PlayerPrefs.GetInt("ItsPlanted" + index) == 0 ? false : true;
-		plantType = (Plants)PlayerPrefs.GetInt("PlantType" + index);
+		index = m_index;
+
+		_isBeenPlanted = PlayerPrefs.GetInt("ItsPlanted" + m_index) == 0 ? false : true;
+		plantType = (Plants)PlayerPrefs.GetInt("PlantType" + m_index);
 	}
 
 	public void Init()
@@ -47,7 +54,8 @@ public class Land : MonoBehaviour
 		_mySprite = transform.GetComponent<SpriteRenderer>();
 		_startOrder = _mySprite.sortingOrder;
 
-		InitTimer();
+		if (_isBeenPlanted)
+			InitTimer(false);
 	}
 
 	private void OnMouseEnter()
@@ -57,23 +65,29 @@ public class Land : MonoBehaviour
 
 		_outline.gameObject.SetActive(true);
 		transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack).SetId(gameObject);
-	}
 
-	private void OnMouseDown()
-	{
 		if (_isBeenPlanted)
 			CollectPopUp(true);
 		else
 			PlantPopUp(true);
 	}
 
+	private void OnMouseDown()
+	{
+		_isHolding = true;
+	}
+
 	private void OnMouseExit()
 	{
+		_isHolding = _isMouseUp = false;
+
 		_mySprite.sortingOrder = _startOrder;
 		_outline.sortingOrder = _startOrder - 1;
 
 		_outline.gameObject.SetActive(false);
 		transform.DOScale(0.8f, 0.3f).SetEase(Ease.OutBack).SetId(gameObject);
+
+		_fillImage.fillAmount = 0f;
 
 		CollectPopUp(false);
 		PlantPopUp(false);
@@ -99,7 +113,7 @@ public class Land : MonoBehaviour
 			_plantImage.sprite = GetItem(plantType).itemDesign;
 		}
 
-		if (SecondsLeft() == 0 && _isBeenPlanted)
+		if (SecondsLeft() <= 0 && _isBeenPlanted)
 		{
 			//Show last state of plant
 			_plantImage.sprite = GetItem(plantType).collectedItem.itemDesign;
@@ -117,12 +131,41 @@ public class Land : MonoBehaviour
 		return null;
 	}
 
+	public void GetPlant()
+	{
+		_isBeenPlanted = false;
+
+		plantType = Plants.None;
+
+		PlayerPrefs.SetInt("ItsPlanted" + index, 0);
+		PlayerPrefs.SetInt("PlantType" + index, (int)Plants.None);
+
+		_plantImage.sprite = null;
+
+		OnMouseExit();
+		//Add to inventory plant collected
+	}
+
+	public void PlantNewSeed()
+	{
+		_isBeenPlanted = true;
+
+		plantType = Plants.OrangePlant;
+
+		PlayerPrefs.SetInt("ItsPlanted" + index, 1);
+		PlayerPrefs.SetInt("PlantType" + index, (int)Plants.OrangePlant);
+
+		OnMouseExit();
+
+		InitTimer(true);
+	}
+
 	#region LAND TIMER
-	public void InitTimer()
+	public void InitTimer(bool newPlant)
 	{
 		_msToWaitPlantsGrow = _secondsToGrow * 1000;
 
-		if (PlayerPrefs.GetString(_lastTimeSave) == "")
+		if (newPlant)
 			ResetTime();
 
 		_lastTimeChecked = ulong.Parse(PlayerPrefs.GetString(_lastTimeSave));
@@ -130,6 +173,34 @@ public class Land : MonoBehaviour
 
 	private void Update()
 	{
+		if (_isHolding)
+		{
+			if (Input.GetMouseButton(0))
+			{
+				if (_fillImage.fillAmount < 1f)
+					_fillImage.fillAmount += Time.deltaTime;
+
+				if (_fillImage.fillAmount >= 1f)
+				{
+					if (_isBeenPlanted)
+						GetPlant();
+					else
+						PlantNewSeed();
+				}
+			}
+
+			if (Input.GetMouseButtonUp(0))
+			{
+				_isMouseUp = true;
+			}
+
+			if (_isMouseUp)
+			{
+				if (_fillImage.fillAmount > 0f)
+					_fillImage.fillAmount -= Time.deltaTime;
+			}
+		}
+
 		//Plant check state
 		CheckPlantState();
 
@@ -164,14 +235,6 @@ public class Land : MonoBehaviour
 		t += (secondsLeft % 60).ToString("00") + "s";
 
 		_timerText.text = t;
-	}
-
-	public void GetPlant()
-	{
-		if (!Availiable())
-			return;
-
-		ResetTime();
 	}
 
 	private void ResetTime()
