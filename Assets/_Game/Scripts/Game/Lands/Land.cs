@@ -13,7 +13,7 @@ public class Land : MonoBehaviour
 
 	private SpriteRenderer _mySprite;
 
-	private void OnEnable()
+	private void Start()
 	{
 		_mySprite = transform.GetComponent<SpriteRenderer>();
 		_startOrder = _mySprite.sortingOrder;

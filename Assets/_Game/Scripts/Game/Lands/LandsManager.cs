@@ -48,7 +48,7 @@ public class LandsManager : MonoBehaviour
 			m_lands.Clear();
 		}
 
-		Vector2 m_instPosition = new Vector2(7.561f, -3.528f);
+		Vector3 m_instPosition = new Vector3(7.561f, -3.528f, -0.02f);
 
 		int m_instaniatedLands = 0;
 
@@ -68,11 +68,11 @@ public class LandsManager : MonoBehaviour
 				else
 					return;
 
-				m_instPosition = new Vector2(m_lands[m_lands.Count - 1].localPosition.x + _xOffSet, m_instPosition.y);
+				m_instPosition = new Vector3(m_lands[m_lands.Count - 1].localPosition.x + _xOffSet, m_instPosition.y, -0.02f);
 			}
 
 			_xIndex = 0;
-			m_instPosition = new Vector2(7.561f, m_lands[m_lands.Count - 1].localPosition.y + _yOffSet);
+			m_instPosition = new Vector3(7.561f, m_lands[m_lands.Count - 1].localPosition.y + _yOffSet, -0.02f);
 		}
 	}
 
@@ -81,13 +81,13 @@ public class LandsManager : MonoBehaviour
 		if (_xIndex == 5)
 			_xIndex = 0;
 
-		Vector2 m_instPosition = new Vector2(7.561f, -3.528f);
+		Vector3 m_instPosition = new Vector3(7.561f, -3.528f, -0.02f);
 
 		if (m_lands.Count > 0)
-			m_instPosition = new Vector2(m_lands[m_lands.Count - 1].localPosition.x + _xOffSet, m_lands[m_lands.Count - 1].localPosition.y);
+			m_instPosition = new Vector3(m_lands[m_lands.Count - 1].localPosition.x + _xOffSet, m_lands[m_lands.Count - 1].localPosition.y, -0.02f);
 
 		if (_xIndex == 0 && m_lands.Count > 0)
-			m_instPosition = new Vector2(7.561f, m_lands[m_lands.Count - 1].localPosition.y + _yOffSet);
+			m_instPosition = new Vector3(7.561f, m_lands[m_lands.Count - 1].localPosition.y + _yOffSet, -0.02f);
 
 		Land m_land = Instantiate(land, m_instPosition, Quaternion.identity, _landParent);
 		m_land.transform.localPosition = m_instPosition;
