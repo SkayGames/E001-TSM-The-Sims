@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static Tree _instance;
+    private static bool _initDone = false;
+
+    public static GameManager GameManager => _instance._gameManager;
+    public static UiManager UIManager => _instance._uIManager;
+
+    [SerializeField] private GameManager _gameManager;
+    [SerializeField] private UiManager _uIManager;
+
+    private void Awake()
     {
-        
+        if (_instance == null)
+            _instance = this;
+        else if (_instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        _uIManager.Init();
+        _gameManager.Init();
+        _initDone = true;
     }
 }
