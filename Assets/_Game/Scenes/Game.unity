@@ -5955,7 +5955,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525920489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.5381, y: -0.5128, z: -0.02}
+  m_LocalPosition: {x: 9.5381, y: -0.5128, z: -0.01}
   m_LocalScale: {x: 5.030121, y: 7.1353474, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8086,7 +8086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   land: {fileID: 3976168979061359995, guid: 5551c9dc9a356694f854c30ea1baa742, type: 3}
-  totalLandsBought: 5
+  totalLandsBought: 3
   maxLandsToBuy: 35
   _fxBuild: {fileID: 198499209413112314, guid: 8bf6a32919f7175498fbb79bcb4fbdbb, type: 3}
   _landParent: {fileID: 1934816317}
