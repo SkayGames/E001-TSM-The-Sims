@@ -28,8 +28,8 @@ public class Tree : MonoBehaviour
 
     private void Start()
     {
-        _uIManager.Init();
         _gameManager.Init();
+        _uIManager.Init();
         _initDone = true;
     }
 }

@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
 {
 	[SerializeField] private float _movingSpeed;
 
+	[Space]
+	[SerializeField] private SpriteRenderer head;
+	[SerializeField] private SpriteRenderer toros;
+	
 	private Rigidbody2D _rb;
 	private Animator _animator;
 
@@ -48,5 +52,15 @@ public class Player : MonoBehaviour
 	private void Hit()
 	{
 		_animator.SetTrigger("Hit");
+	}
+
+	public void ChangeHeadDesign(Sprite sprite)
+	{
+		head.sprite = sprite;
+	}
+
+	public void ChangeTorosDesign(Sprite sprite)
+	{
+		toros.sprite = sprite;
 	}
 }

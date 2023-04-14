@@ -7,6 +7,7 @@ public class LandsManager : MonoBehaviour
 	public Land land;
 
 	public int totalLandsBought;
+	public int maxLandsToBuy;
 
 	[SerializeField] private Transform _landParent;
 

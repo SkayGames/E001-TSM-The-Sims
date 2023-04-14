@@ -142,12 +142,16 @@ public class Land : MonoBehaviour
 
 		_plantImage.sprite = null;
 
+		Tree.GameManager.BoughtPlants++;
+
 		OnMouseExit();
 		//Add to inventory plant collected
 	}
 
 	public void PlantNewSeed()
 	{
+		//Buy seeds
+
 		_isBeenPlanted = true;
 
 		plantType = Plants.OrangePlant;
@@ -177,12 +181,15 @@ public class Land : MonoBehaviour
 		{
 			if (Input.GetMouseButton(0))
 			{
+				if (_isBeenPlanted && !Availiable())
+					return;
+
 				if (_fillImage.fillAmount < 1f)
 					_fillImage.fillAmount += Time.deltaTime;
 
 				if (_fillImage.fillAmount >= 1f)
 				{
-					if (_isBeenPlanted)
+					if (_isBeenPlanted && Availiable())
 						GetPlant();
 					else
 						PlantNewSeed();
