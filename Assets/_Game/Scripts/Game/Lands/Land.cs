@@ -15,7 +15,6 @@ public class Land : MonoBehaviour
 	[SerializeField] private RectTransform _collectPopUp;
 	[SerializeField] private RectTransform _plantPopUp;
 	[SerializeField] private TextMeshProUGUI _timerText;
-	[SerializeField] private Button collectButton;
 
 	[Space]
 	[SerializeField] private float _secondsToGrow;
@@ -213,11 +212,11 @@ public class Land : MonoBehaviour
 
 		if (Availiable())
 		{
-			collectButton.interactable = true;
+			//collectButton.interactable = true;
 			return;
 		}
 
-		collectButton.interactable = false;
+		//collectButton.interactable = false;
 
 		ulong diff = ((ulong)DateTime.Now.Ticks - _lastTimeChecked);
 		ulong ms = diff / TimeSpan.TicksPerMillisecond;

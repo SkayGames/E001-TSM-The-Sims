@@ -29,7 +29,7 @@ public class ClothesItemUi : MonoBehaviour
 	public void Init()
 	{
 		_itemDesign.sprite = GetClothesItem().itemDesign;
-		_priceToUnlock.text = "BUY " + GetClothesItem().buyPrice;
+		_priceToUnlock.text = "BUY " + GetClothesItem().buyPrice + "$";
 
 		if (clothesType == ClothesType.Head)
 		{
@@ -79,9 +79,10 @@ public class ClothesItemUi : MonoBehaviour
 
 	public void EquipeItem()
 	{
-
 		if (clothesType == ClothesType.Head)
 		{
+			PlayerPrefs.SetInt("IsFirstTimeHead", 1);
+
 			PlayerPrefs.SetInt("IsEquiped" + clothesHead, 1);
 
 			Tree.UIManager.shopManager.UnequipeHeads(clothesHead);
@@ -89,6 +90,8 @@ public class ClothesItemUi : MonoBehaviour
 		}
 		else
 		{
+			PlayerPrefs.SetInt("IsFirstTimeToros", 1);
+
 			PlayerPrefs.SetInt("IsEquiped" + clothesTorso, 1);
 
 			Tree.UIManager.shopManager.UnequipeTorso(clothesTorso);

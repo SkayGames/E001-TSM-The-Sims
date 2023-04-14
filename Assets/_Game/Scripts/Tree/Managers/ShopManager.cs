@@ -121,7 +121,7 @@ public class ShopManager : MonoBehaviour
 			PlantItemUi m_plantItem = Instantiate(_plantItem, Vector2.zero, Quaternion.identity, _plantItemParent);
 			_plantsItemsList = m_plantItem;
 
-			m_plantItem.Init(m_itemPlant.itemDesign, m_itemPlant.itemSellPrice, Tree.GameManager.BoughtPlants, SellItemPlant);
+			m_plantItem.Init(m_itemPlant.collectedItem.itemDesign, m_itemPlant.collectedItem.itemSellPrice, Tree.GameManager.BoughtPlants, SellItemPlant);
 		}
 		else if (Tree.GameManager.BoughtPlants == 0)
 		{
@@ -138,10 +138,10 @@ public class ShopManager : MonoBehaviour
 
 		Tree.GameManager.BoughtPlants--;
 
-		_plantsItemsList.Init(m_itemPlant.itemDesign, m_itemPlant.itemSellPrice, Tree.GameManager.BoughtPlants, SellItemPlant);
+		_plantsItemsList.Init(m_itemPlant.collectedItem.itemDesign, m_itemPlant.collectedItem.itemSellPrice, Tree.GameManager.BoughtPlants, SellItemPlant);
 
 		//Give him money
-		Tree.GameManager.Coins += m_itemPlant.itemSellPrice;
+		Tree.GameManager.Coins += m_itemPlant.collectedItem.itemSellPrice;
 
 		if (Tree.GameManager.BoughtPlants == 0)
 		{

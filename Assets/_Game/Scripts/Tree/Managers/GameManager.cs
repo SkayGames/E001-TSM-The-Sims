@@ -20,19 +20,25 @@ public class GameManager : MonoBehaviour
 	{
 		Coins = Coins;
 
-		for (int i = 0; i < clothesHead.Length; i++)
+		if (!IsFirstTimeHead())
 		{
-			if((int)clothesHead[i].clothesHead == SavedHead)
+			for (int i = 0; i < clothesHead.Length; i++)
 			{
-				UpdatePlayerHead(clothesHead[i], SavedHead);
+				if ((int)clothesHead[i].clothesHead == SavedHead)
+				{
+					UpdatePlayerHead(clothesHead[i], SavedHead);
+				}
 			}
 		}
 
-		for (int i = 0; i < clothesTorso.Length; i++)
+		if (!IsFirstTimeToros())
 		{
-			if ((int)clothesTorso[i].clothesTorso == SavedToros)
+			for (int i = 0; i < clothesTorso.Length; i++)
 			{
-				UpdatePlayerToros(clothesTorso[i], SavedToros);
+				if ((int)clothesTorso[i].clothesTorso == SavedToros)
+				{
+					UpdatePlayerToros(clothesTorso[i], SavedToros);
+				}
 			}
 		}
 	}
@@ -105,5 +111,21 @@ public class GameManager : MonoBehaviour
 
 			Tree.UIManager.ChangeCoinsText(_coins);
 		}
+	}
+
+	public bool IsFirstTimeHead()
+	{
+		if (PlayerPrefs.GetInt("IsFirstTimeHead") == 0)
+			return true;
+		else
+			return false;
+	}
+
+	public bool IsFirstTimeToros()
+	{
+		if (PlayerPrefs.GetInt("IsFirstTimeToros") == 0)
+			return true;
+		else
+			return false;
 	}
 }

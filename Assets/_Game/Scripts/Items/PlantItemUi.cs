@@ -22,7 +22,7 @@ public class PlantItemUi : MonoBehaviour
 
 		_itemDesign.sprite = design;
 
-		_sellPrice.text = "SELL" + sellPrice;
+		_sellPrice.text = "SELL " + sellPrice+"$";
 		_quanitity.text = "" + quanitity;
 	}
 }
