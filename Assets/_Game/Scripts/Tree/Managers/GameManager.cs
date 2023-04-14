@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+	public bool gameStarted => _gameStarted;
+
 	public ClothesItems[] clothesHead;
 	public ClothesItems[] clothesTorso;
 
@@ -11,6 +13,8 @@ public class GameManager : MonoBehaviour
 	public Player player;
 
 	private float _coins;
+
+	private bool _gameStarted;
 
 	private int _playerHeadIndex;
 	private int _playerTorosIndex;
@@ -41,6 +45,19 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	private void Update()
+	{
+		if (Input.GetMouseButtonDown(0) && !_gameStarted)
+			StartGame();
+	}
+
+	public void StartGame()
+	{
+		_gameStarted = true;
+
+		Tree.UIManager.TapToPlay(false);
 	}
 
 	public void UpdatePlayerHead(ClothesItems clothesItem, int clothesIndex)

@@ -138,6 +138,8 @@ public class Land : MonoBehaviour
 
 	public void GetPlant()
 	{
+		CameraManager.instance.ShakeCamera(0.5f, 0.1f);
+
 		PlantFx();
 
 		_isBeenPlanted = false;
@@ -157,6 +159,8 @@ public class Land : MonoBehaviour
 
 	public void PlantNewSeed()
 	{
+		CameraManager.instance.ShakeCamera(0.5f, 0.1f);
+
 		//Buy seeds
 		PlantFx();
 

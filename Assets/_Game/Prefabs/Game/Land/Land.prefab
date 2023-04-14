@@ -426,7 +426,7 @@ MonoBehaviour:
   _collectPopUp: {fileID: 5954578181366265160}
   _plantPopUp: {fileID: 2871574760626779128}
   _timerText: {fileID: 1423760712002937258}
-  _secondsToGrow: 10
+  _secondsToGrow: 30
   _plantImage: {fileID: 9155838751556978780}
   _outline: {fileID: 3933605696951623085}
 --- !u!1 &4561958527724673646

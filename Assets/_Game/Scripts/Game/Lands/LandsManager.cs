@@ -86,6 +86,7 @@ public class LandsManager : MonoBehaviour
 
 	public void BuyNewLand()
 	{
+		CameraManager.instance.ShakeCamera(1f, 0.1f);
 
 		if (_xIndex == 5)
 			_xIndex = 0;

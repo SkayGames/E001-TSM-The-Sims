@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
 
 	private void Update()
 	{
+		if (!Tree.GameManager.gameStarted)
+			return;
+
 		_moveDirection.x = Input.GetAxisRaw("Horizontal");
 		_moveDirection.y = Input.GetAxisRaw("Vertical");
 
