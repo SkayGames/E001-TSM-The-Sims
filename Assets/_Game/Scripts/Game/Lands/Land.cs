@@ -11,6 +11,10 @@ public class Land : MonoBehaviour
 	public Plants plantType;
 
 	[Header("UI")]
+	[SerializeField] private ParticleSystem _takePlantFX;
+	[SerializeField] private Transform _takePlantFXPosition;
+
+	[Header("UI")]
 	[SerializeField] private Image _fillImage;
 	[SerializeField] private RectTransform _collectPopUp;
 	[SerializeField] private RectTransform _plantPopUp;
@@ -50,6 +54,8 @@ public class Land : MonoBehaviour
 
 	public void Init()
 	{
+		transform.DOScale(0.8f, 0.3f).SetEase(Ease.OutBack).SetId(gameObject);
+
 		_mySprite = transform.GetComponent<SpriteRenderer>();
 		_startOrder = _mySprite.sortingOrder;
 
@@ -132,6 +138,8 @@ public class Land : MonoBehaviour
 
 	public void GetPlant()
 	{
+		PlantFx();
+
 		_isBeenPlanted = false;
 
 		plantType = Plants.None;
@@ -150,6 +158,7 @@ public class Land : MonoBehaviour
 	public void PlantNewSeed()
 	{
 		//Buy seeds
+		PlantFx();
 
 		_isBeenPlanted = true;
 
@@ -161,6 +170,11 @@ public class Land : MonoBehaviour
 		OnMouseExit();
 
 		InitTimer(true);
+	}
+
+	public void PlantFx()
+	{
+		ParticleSystem m_fx = Instantiate(_takePlantFX, _takePlantFXPosition.position, Quaternion.identity);
 	}
 
 	#region LAND TIMER

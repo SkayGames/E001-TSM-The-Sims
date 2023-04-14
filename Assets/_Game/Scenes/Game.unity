@@ -5683,6 +5683,18 @@ PrefabInstance:
       propertyPath: toros
       value: 
       objectReference: {fileID: 1517067559}
+    - target: {fileID: 426217710, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: _walkFx
+      value: 
+      objectReference: {fileID: 19800000, guid: 3a83c2127eec23b46a48af0e65c022ed, type: 3}
+    - target: {fileID: 426217710, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: _walkFxLeftPos
+      value: 
+      objectReference: {fileID: 426217711}
+    - target: {fileID: 426217710, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+      propertyPath: _walkFxRightPos
+      value: 
+      objectReference: {fileID: 426217709}
     - target: {fileID: 1000010208881502, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5753,6 +5765,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+--- !u!4 &426217709 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000014070935474, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+  m_PrefabInstance: {fileID: 426217708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &426217710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 426217710, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
@@ -5764,6 +5781,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6491546d8f2ce474799c80dbe2150a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &426217711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000010921337980, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
+  m_PrefabInstance: {fileID: 426217708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &426217712 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010141028922, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
@@ -8048,6 +8070,7 @@ MonoBehaviour:
   land: {fileID: 3976168979061359995, guid: 5551c9dc9a356694f854c30ea1baa742, type: 3}
   totalLandsBought: 5
   maxLandsToBuy: 35
+  _fxBuild: {fileID: 198499209413112314, guid: 8bf6a32919f7175498fbb79bcb4fbdbb, type: 3}
   _landParent: {fileID: 1934816317}
   _xOffSet: 1
   _yOffSet: 1
@@ -11319,6 +11342,10 @@ PrefabInstance:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 426217712}
+    - target: {fileID: 630678380, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
+      propertyPath: m_text
+      value: 100$
+      objectReference: {fileID: 0}
     - target: {fileID: 630678380, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
       propertyPath: m_fontStyle
       value: 16

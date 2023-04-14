@@ -9,6 +9,9 @@ public class LandsManager : MonoBehaviour
 	public int totalLandsBought;
 	public int maxLandsToBuy;
 
+	[Header("FX")]
+	[SerializeField] private ParticleSystem _fxBuild;
+
 	[SerializeField] private Transform _landParent;
 
 	[SerializeField] private float _xOffSet;
@@ -83,6 +86,7 @@ public class LandsManager : MonoBehaviour
 
 	public void BuyNewLand()
 	{
+
 		if (_xIndex == 5)
 			_xIndex = 0;
 
@@ -93,6 +97,8 @@ public class LandsManager : MonoBehaviour
 
 		if (_xIndex == 0 && m_lands.Count > 0)
 			m_instPosition = new Vector3(7.561f, m_lands[m_lands.Count - 1].localPosition.y + _yOffSet, -0.02f);
+		
+		ShowFx(m_instPosition);
 
 		Land m_land = Instantiate(land, m_instPosition, Quaternion.identity, _landParent);
 		m_land.transform.localPosition = m_instPosition;
@@ -107,6 +113,11 @@ public class LandsManager : MonoBehaviour
 			_xIndex++;
 
 		TotalLandsBought++;
+	}
+
+	public void ShowFx(Vector3 position)
+	{
+		ParticleSystem m_fxBuild = Instantiate(_fxBuild, position, Quaternion.identity);
 	}
 
 	public int TotalLandsBought
