@@ -11,6 +11,6 @@ public class GamePlayUi : MonoBehaviour
 
     public void ChangeTextUi(float coins)
 	{
-		_coins.text = $"{coins}$";
+		_coins.text = $"{coins.ToString("0.00")}$";
 	}
 }

@@ -101,9 +101,9 @@ public class GameManager : MonoBehaviour
 		set
 		{
 			_coins = value;
-			PlayerPrefs.GetFloat("Coins", _coins);
+			PlayerPrefs.SetFloat("Coins", _coins);
 
-			Tree.UIManager.ChangeCoinsText(value);
+			Tree.UIManager.ChangeCoinsText(_coins);
 		}
 	}
 }

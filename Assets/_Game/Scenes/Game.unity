@@ -5929,7 +5929,7 @@ MonoBehaviour:
   _landPage: {fileID: 1609936761}
   _buyButton: {fileID: 368982231}
   _buyPrice: {fileID: 770753006}
-  _landPrice: 99
+  _landPrice: 19.99
 --- !u!1 &532430305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7511,17 +7511,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &630678380 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 630678380, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
-  m_PrefabInstance: {fileID: 6123428204060155111}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &757864008 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212000013352628812, guid: 722924ec8a0056f4a8fb443b2fb65ff9, type: 3}
@@ -7921,24 +7910,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &940778189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6123428204581681751, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
-  m_PrefabInstance: {fileID: 6123428204060155111}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &940778191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940778189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36de2ab7424406448b09e6254a914378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _coins: {fileID: 630678380}
 --- !u!1 &942944592
 GameObject:
   m_ObjectHideFlags: 0
@@ -7987,7 +7958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   land: {fileID: 3976168979061359995, guid: 5551c9dc9a356694f854c30ea1baa742, type: 3}
-  totalLandsBought: 0
+  totalLandsBought: 5
   maxLandsToBuy: 35
   _landParent: {fileID: 1934816317}
   _xOffSet: 1
@@ -11182,6 +11153,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 426217710}
+    - target: {fileID: 6123428205149315360, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4eb935caa59a8674db7ba85dfa45d975, type: 3}
 --- !u!114 &6123428204060155114 stripped

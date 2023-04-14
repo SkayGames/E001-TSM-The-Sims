@@ -58,7 +58,7 @@ public class ClothesItemUi : MonoBehaviour
 
 	public void BuyClothes()
 	{
-		if(GetClothesItem().buyPrice <= Tree.GameManager.Coins)
+		if (GetClothesItem().buyPrice <= Tree.GameManager.Coins)
 		{
 			Tree.GameManager.Coins -= GetClothesItem().buyPrice;
 
@@ -79,6 +79,7 @@ public class ClothesItemUi : MonoBehaviour
 
 	public void EquipeItem()
 	{
+
 		if (clothesType == ClothesType.Head)
 		{
 			PlayerPrefs.SetInt("IsEquiped" + clothesHead, 1);

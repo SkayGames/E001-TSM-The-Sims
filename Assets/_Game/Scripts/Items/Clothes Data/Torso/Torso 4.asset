@@ -16,4 +16,6 @@ MonoBehaviour:
   clothesHead: 0
   clothesTorso: 3
   itemDesign: {fileID: 21300000, guid: 3d9056df586b6024fbc5b9fee2433eef, type: 3}
-  buyPrice: 0
+  buyPrice: 59
+  isUnlocked: 0
+  isEquiped: 0

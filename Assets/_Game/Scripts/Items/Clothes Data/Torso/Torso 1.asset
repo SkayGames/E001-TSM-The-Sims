@@ -15,5 +15,6 @@ MonoBehaviour:
   clothesType: 1
   clothesHead: 0
   clothesTorso: 0
-  itemDesign: {fileID: 21300000, guid: 215dd6c48c732d744aecd29e7fecbbfa, type: 3}
-  buyPrice: 0
+  itemDesign: {fileID: 21300000, guid: 250530d3e9754ed418009e3d539275b3, type: 3}
+  buyPrice: 5.99
+  isUnlocked: 0

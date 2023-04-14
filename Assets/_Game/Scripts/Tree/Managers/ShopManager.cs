@@ -141,7 +141,7 @@ public class ShopManager : MonoBehaviour
 		_plantsItemsList.Init(m_itemPlant.itemDesign, m_itemPlant.itemSellPrice, Tree.GameManager.BoughtPlants, SellItemPlant);
 
 		//Give him money
-		
+		Tree.GameManager.Coins += m_itemPlant.itemSellPrice;
 
 		if (Tree.GameManager.BoughtPlants == 0)
 		{

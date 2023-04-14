@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5087620b9252d46904bdbdf4605fec, type: 3}
   m_Name: Head 1
   m_EditorClassIdentifier: 
-  itemDesign: {fileID: 21300000, guid: 468244f274f38f64b85773c7888444b6, type: 3}
-  buyPrice: 0
+  clothesType: 0
+  clothesHead: 0
+  clothesTorso: 0
+  itemDesign: {fileID: 21300000, guid: 20eb058aea3c3a744bb5d47a1610550a, type: 3}
+  buyPrice: 5.99
+  isUnlocked: 0
